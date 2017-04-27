@@ -47,10 +47,18 @@ function draw() {
     var g = capture.pixels[i + 1];
     var b = capture.pixels[i + 2];
     var a = capture.pixels[i + 3];
+    
+    var avg = (capture.pixels[i]+capture.pixels[i+1]+capture.pixels[i+2])/3;
       
-      r = r/2 *smile/30;
-      g = g/2 *smile/30;
-      b = b/2 *smile/30;
+      r = avg;
+      g = avg;
+      b = avg;
+      
+      if(smile > 75) {
+        r = capture.pixels[i];
+        g = capture.pixels[i+1];
+        b = capture.pixels[i+2];
+      }
 
     img.pixels[i] = r;
     img.pixels[i + 1] = g;
